@@ -1,0 +1,37 @@
+                              Week 2 Reflection
+Briefly describe your understanding of what the browser does, including definitions of the following:
+
+A browser is a tool that displays packets of information in the form of websites, which are what a user can see. The user uses the client, which is essentially my computer or another person's computer, to connect to the server, which is the remote "computer" that our client is reaching out to  when we want to access some website or remote application. The browser then renders the website, which is the act of the server giving us the documents and files we asked for in the form of images and text, basically, in a form that we as humans can understand.
+
+What is HTML? In your answer, include definitions of the following:
+
+HTML, or hyper-text markup language, is used to create the backbone of a website. It is used to display content by way of text and images. It is contained inside of a .html document, which can be linked to other documents which help it get the information across. HTML contains tags, which are used to create an html element, and has a opening tag and an ending tag. I don't recall going over what a node is, but after a search on MDN it is a DOM API object that allows various types of objects to be treated similarly. An attribute is a characteristic of the html element that can be found in the opening tag such as or a opening tag that closes itself. The attribute is essentially a way to define an element to make it unique or identify it, amongst other things. Block elements are elements of an html document that apply to large blocks of space, such as a p, div, h1-6, fieldset, etc. They can be visualized as boxes that can be stacked on top of each other and are styled as a whole block. Finally, inline elements are elements that are found anywhere within a line of code. An example would be span, em, strong, etc. These can be found within a block level element at any location. However, they cannot contain block level elements.
+
+Very briefly, explain the purpose of the following elements:
+
+1. head
+* The head is the part of an html document that houses various pieces of information about the document, such as the title, the language and character set in which the document is encoded, links to other documents that are needed for the html to run as it has been created to run, etc.
+2. body
+* The body is the part of an html document that houses the contents of the page, such as block level elements in the form of paragraphs, headers, and images. It also holds navigation information and is the part of the document that users actually interact with.
+3. p
+* A paragraph element, displays text
+4. form
+* It requests information from a user, such as name, email, address, answers to questions, etc. and sends this information to a database or allows the user to access a username/password-protected location
+5. div
+* A block level element container that holds various other elements and separates them via styling or location (e.g. by using css and bootstrap)
+6. span
+* An inline element that allows a section of a block level element to be styled differently than the rest of the block or output information differently than the rest of the block
+7. select
+* Used in form-making, is an element that displays options for a user to select
+8. h2
+* The second largest header
+9. ol
+* Creates an ordered list (e.g. 1-5)
+10. ul
+* Creates an unordered list (e.g. bullets)
+11. table
+* Table element that creates a table much like a spreadsheet
+12. tr
+* The tag used to create a row in a table
+13. td
+* Tag used to create a cell in a row in a table
