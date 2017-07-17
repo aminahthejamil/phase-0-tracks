@@ -1,0 +1,26 @@
+A. Find the elevator
+B. Walk towards the elevator
+C. Check to see if the "Up" button has been pressed
+     1. If "Up" button hasn't been pressed
+          a. Press "Up" button
+          b. Proceed to step D.
+     2. If "Up" button has been pressed, proceed to step D.
+D. Wait for elevator arrival
+E. When elevator arrives
+     1. If empty, enter elevator
+     2. If full, wait until it is empty, and then enter
+F. Move toward wall with floor buttons
+G. Find desired floor number
+H. Press desired floor number
+     1. If other robots/humans want to enter elevator
+          a. Press "Hold doors open" button
+          b. Or hold doors open manually
+          c. Press "Close doors" button
+          d. Wait for doors to close manually
+     2. Otherwise
+          a. Press "Close doors" button
+          b. Wait for doors to close manually
+J. Wait for arrival to desired floor
+K. Once reached
+     1. Exit elevator
+     2. Do the robot dance
