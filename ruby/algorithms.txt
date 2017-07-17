@@ -1,3 +1,5 @@
+Robot Elevator Directions Algorithm
+
 A. Program robot to go to 35th floor
 B. Find the elevator
 C. Walk towards the elevator
@@ -25,3 +27,31 @@ J. Wait for arrival to 35th floor
 K. Once reached
      1. Exit elevator
      2. Do the robot dance
+
+Brushing Teeth Algorithm
+
+A. Walk into the bathroom
+B. Turn the light on
+C. Locate toothbrush
+D. Pick up toothbrush
+E. Run hot water
+F. Place toothbrush bristles under hot running water
+G. Turn off hot water
+H. Locate toothpaste
+     1. If full, squirt two peas worth of toothpaste onto toothbrush bristles
+     2. Otherwise
+          a. Replace toothpaste
+          b. Use coconut oil instead
+               I. Locate coconut oil
+               II. Put coconut oil onto toothbrush bristles
+I. Place toothbrush bristles onto front teeth
+J. Brush gently, but vigorously
+K. Set internal timer to 2:00 minutes
+L. After two minutes have passed, spit toothpaste/coconut oil out
+M. Turn on water (hot & cold)
+N. Rinse toothbrush clean
+O. Place toothbrush back where it came from
+P. Use cup or hands to fill with water and move to mouth
+Q. Swish water around mouth
+R. Spit water out
+S. Release a satisfied "aaaahhhhhh"
