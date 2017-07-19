@@ -1,18 +1,21 @@
 #Hamster Sanctuary
 
-hamster_name = gets.chomp
-volume = gets.chomp
-fur_color = gets.chomp
-adoptable = gets.chomp
-estimated_age = nil
-
 puts "What's the hamster's name?"
-     hamster_name
+name = gets.chomp
+
 puts "What's your sleep sensitivity from 1-10?"
-     volume
+volume = gets.chomp.to_i
+
 puts "What's the color of the hamster's fur?"
-     fur_color
-puts "Would you recommend this hamster for adoption, y or n?"
-     adoptable
+fur_color = gets.chomp
+
+puts "Would you recommend this hamster for adoption (y/n)?"
+     input = gets.chomp
+if input == "y"
+     adoptable = true
+else
+     adoptable = false
+end
+
 puts "How old would you say this hamster is?"
-     estimated_age          
+est_age = nil
