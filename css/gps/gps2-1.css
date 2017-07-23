@@ -1,3 +1,39 @@
 body {
-     background-color: pink;
+  font-family: monospace;
+}
+
+header{
+  background-color: teal;
+  padding: 25px;
+  text-align: center;
+}
+
+.column-1{
+  background-color: #B1E1E2;
+  border: 3px solid black;
+  float: left;
+  width: 49.1%;
+  height: 760px;
+}
+.column-2{
+  background-color: #B1E1E2;
+  border: 3px solid black;
+  float: right;
+  width: 49.1%;
+  height: 760px;
+}
+
+img {
+  border: 3px solid black;
+  width:55%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer{
+  background-color: teal;
+  clear: both;
+  text-align: center;
+  padding: 25px;
 }
