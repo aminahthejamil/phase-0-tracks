@@ -28,14 +28,13 @@ def survey()
   if life_insurance == "y"
     vampire_li = false
   else
-    vampire_li = true  
+    vampire_li = true
   end
 
   puts "Do you have any allergies?"
-    any_allergies = gets.chomp
-    if any_allergies == "y"
-      puts "Please list them one at a time: "
-    end
+  any_allergies = gets.chomp
+  if any_allergies == "y"
+    puts "Please list them one at a time: "
     allergies = ""
     until (allergies == "sunshine" || allergies =="done")
       allergies = gets.chomp
@@ -44,6 +43,8 @@ def survey()
       else
       end
     end
+  else
+  end
 
   if (correct_year == birth_year) && (vampire_gb == false)
     puts "Probably not a vampire"
