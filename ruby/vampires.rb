@@ -38,8 +38,6 @@ def survey()
     allergies = ""
     until (allergies == "sunshine" || allergies =="done")
       allergies = gets.chomp
-      else
-      end
     end
   else
   end
