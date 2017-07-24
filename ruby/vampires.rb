@@ -38,8 +38,6 @@ def survey()
     allergies = ""
     until (allergies == "sunshine" || allergies =="done")
       allergies = gets.chomp
-      if allergies == "sunshine"
-      puts "Probably a vampire"
       else
       end
     end
