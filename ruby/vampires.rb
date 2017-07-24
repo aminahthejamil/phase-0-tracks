@@ -34,7 +34,7 @@ def survey()
   puts "Do you have any allergies?"
   any_allergies = gets.chomp
   if any_allergies == "y"
-    puts "Please list them one at a time: "
+    puts "Please list them one at a time, and enter 'done' when you are finished: "
     allergies = ""
     until (allergies == "sunshine" || allergies =="done")
       allergies = gets.chomp
