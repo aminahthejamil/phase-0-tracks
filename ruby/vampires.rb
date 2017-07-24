@@ -30,7 +30,7 @@ def survey()
   else
     vampire_li = true
   end
-
+ 
   puts "Do you have any allergies?"
   any_allergies = gets.chomp
   if any_allergies == "y"
