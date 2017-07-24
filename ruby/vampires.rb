@@ -39,7 +39,7 @@ def survey()
     until (allergies == "sunshine" || allergies =="done")
       allergies = gets.chomp
       if allergies == "sunshine"
-        puts "Probably a vampire"
+      puts "Probably a vampire"
       else
       end
     end
@@ -48,13 +48,14 @@ def survey()
 
   if (correct_year == birth_year) && (vampire_gb == false)
     puts "Probably not a vampire"
-  elsif (correct_year != birth_year) && (vampire_gb == true || vampire_li == true)
+  elsif (correct_year != birth_year) && (vampire_gb == true || vampire_li == true ||
+    allergies == "sunshine")
     puts "Probably a vampire"
   elsif (correct_year != birth_year) && vampire_gb == true && vampire_li == true
     puts "Almost certainly a vampire"
   elsif (name == "Drake Cula" || name == "Tu Fang")
     puts "Definitely a vampire"
-  else
+  else !(allergies == "sunshine")
     puts "Results inconclusive"
   end
 end
