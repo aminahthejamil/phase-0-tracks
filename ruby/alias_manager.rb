@@ -3,6 +3,12 @@
 Switch the first and last name
 1. Separate the names into 2 array objects
 2. Swap the names
+3. Downcase the names
+4. Switch out the vowels to the next vowels
+5. Switch out the consonants to the next consonants
+6. Capitalize the names
+7. Out put the new alias name
+
 =end
 
 def down_case(str)
