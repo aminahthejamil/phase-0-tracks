@@ -67,7 +67,7 @@ end
 3. The first number will be compared with the second number
 4. If the first number is greater than the second number, those two numbers are swapped
 5. That first number is then compared to the following numbers until it reaches a number that it is less than.
-6. The each number is compared to the next iteratively until all numbers are sorted
+6. Each number is compared to the next iteratively until all numbers are sorted
 =end
 
 def bubble_sort(array)
