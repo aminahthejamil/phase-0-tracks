@@ -1,14 +1,18 @@
 SPECIES ------------------------
-Eyelashus Adorableus
+Puppy
 
 CHARACTERISTICS ----------------
-Eyelash length: varies
+Ears: varies
 Friendly: yes
-Eye count: 8
+Fur type: varies
 Name: varies
 Color: varies
+Leg count: 4 (sometimes less)
 
 BEHAVIOR -----------------------
 Jump
-Hug
-Scamper
+Lick
+Bite
+Run
+Snuggle
+Dig
