@@ -2,7 +2,7 @@
 
 def calculate(int1, operator, int2)
 
-  case operator
+  case
   when operator == "+"
     ans = int1 + int2
   when operator == "-"
@@ -12,8 +12,9 @@ def calculate(int1, operator, int2)
   when operator == "/"
     ans = int1 / int2
   end
-  ans
+
 end
+
 
 # Hash calculation and answer database
 calc_database = {}
@@ -26,8 +27,8 @@ loop do
 
   user_input = gets.chomp
   break if user_input == 'quit'
-  puts calculate(user_input[0].to_i, user_input[1], user_input[2].to_i)
-
+  user_input.split('')
+  answer = calculate(user_input[0].to_i, user_input[1], user_input[2].to_i)
 
   if user_input.length > 3
     puts "Oh no! Try again!"
@@ -36,9 +37,11 @@ loop do
   end
   puts "Keep going!"
 
-  # Where I'm having trouble. After I switched from an array to a hash, I haven't been able to figure out how to show the answer to the equation nor put the answers into the hash values
-  calc_database[user_input] = [user_input = ans]
+
+  calc_database[user_input] = [answer]
 end
 
 puts "You performed #{calc_database.length} calculation(s):"
-puts calc_database
+calc_database.each do |equation, answer|
+puts "You asked the calculator #{equation} and got back #{answer}"
+end
