@@ -37,3 +37,36 @@ fido = Puppy.new
 
 # Test the fetch method
 p fido.fetch("ball")
+
+
+class Car
+
+  def ignition(action)
+    action = "*vroom vroom*"
+    puts "#{action}"
+  end
+
+  def car_color(color)
+    puts "The color of this car is #{color}!"
+
+  end
+
+  def initialize
+    puts "Initializing new drive instance..."
+  end
+end
+
+
+counter = 0
+instance_array = []
+while counter < 51
+  mazda = Car.new
+  counter += 1
+  instance_array << mazda
+end
+puts instance_array
+
+instance_array.each do 
+  puts mazda.ignition("drive")
+  puts mazda.car_color("silver")
+end
