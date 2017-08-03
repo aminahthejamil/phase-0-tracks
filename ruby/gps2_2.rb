@@ -35,3 +35,30 @@
   # 1. Iterate over the list
   # 2. Print keys and values
 # output: The list in sentences like, "We want this many #{quanitity_value} of this #{food_key}" item"
+
+#Method to create a list
+def create_list(array)
+  array = array.split(' ')
+  grocery_list = {}
+
+  array.each do |item|
+    grocery_list[item] = "0"
+  end
+  p grocery_list
+end
+
+p grocery_list = create_list("carrots apples pizza cereal")
+
+def add_item(list, new_item, quantity)
+  list[new_item] = [quantity]
+  p list
+end
+
+def remove_item
+end
+
+def update
+end
+
+def print_list
+end
