@@ -91,3 +91,14 @@ p remove_item(grocery_list, "lemonade")
 p update(grocery_list, "ice cream", 1)
 
 p print_list(grocery_list)
+
+# Reflection
+=begin
+1. I learned that I need to learn how to pseudocode better. Most of the time my pseudocode doesn't translate into good coding practices.
+2. Arrays are easier to use, but if you have pairs of information, it's hard to read the output and put those two pieces of information together. Hashes are harder to use, but their output is so much easier to read and understand.
+3. A method returns whatever is in its body
+4. You can pass strings, integers, booleans, other methods, and more
+5. You can create a variable and set it equal to that method and its parameters if it has any
+6. I finally understand how to use elements of methods outside of their boundaries, which has been something that has stood in the way of my understanding methods. I'm still confused about iterating over certain elements and replacing pieces of information, such as letters.
+
+=end
