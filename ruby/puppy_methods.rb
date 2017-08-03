@@ -5,15 +5,13 @@ class Puppy
     toy
   end
 
-end
-
   def speak(num)
     puts "Woof!"
   end
 
   def roll_over(action)
     action = "*rolls over*"
-    puts "#{{action}}"
+    puts "#{action}"
   end
 
   def dog_years(dog_years)
@@ -24,4 +22,18 @@ end
   def lick(action)
     action = "*lick*"
   end
+
+  def initialize
+    puts "Initializing new puppy instance..."
+  end
+
+end
 # Driver Code
+# Initialize Puppy class
+Puppy.new
+
+# Initialize new instance of Fido
+fido = Puppy.new
+
+# Test the fetch method
+p fido.fetch("ball")
