@@ -71,5 +71,23 @@ end
 
 p update(grocery_list, "carrots", 2)
 
-def print_list
+def print_list(list)
+  list.each do |item, quantity|
+    puts "#{quantity}: #{item}"
+  end
 end
+
+p print_list(grocery_list)
+
+# Release 2
+
+p add_item(grocery_list, "lemonade", 2)
+p add_item(grocery_list, "tomatoes", 3)
+p add_item(grocery_list, "onions", 1)
+p add_item(grocery_list, "ice cream", 4)
+
+p remove_item(grocery_list, "lemonade")
+
+p update(grocery_list, "ice cream", 1)
+
+p print_list(grocery_list)
