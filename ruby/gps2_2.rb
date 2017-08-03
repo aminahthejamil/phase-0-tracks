@@ -47,15 +47,22 @@ def create_list(array)
   p grocery_list
 end
 
-p grocery_list = create_list("carrots apples pizza cereal")
+p grocery_list = create_list("carrots apples pizza cereal berries")
 
 def add_item(list, new_item, quantity)
-  list[new_item] = [quantity]
-  p list
+  list[new_item] = quantity
+  list
 end
 
-def remove_item
+p add_item(grocery_list, "berries", 3)
+p add_item(grocery_list, "milk", 3)
+
+def remove_item(list, item)
+  list.delete(item)
+  list
 end
+
+p remove_item(grocery_list, "milk")
 
 def update
 end
