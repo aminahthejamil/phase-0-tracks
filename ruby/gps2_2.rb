@@ -64,8 +64,12 @@ end
 
 p remove_item(grocery_list, "milk")
 
-def update
+def update(list, item, quantity)
+  list[item] = quantity
+  list
 end
+
+p update(grocery_list, "carrots", 2)
 
 def print_list
 end
