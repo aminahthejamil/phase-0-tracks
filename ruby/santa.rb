@@ -51,7 +51,10 @@ genders.length.times do |i|
   santas << Santa.new(genders[1], ethnicities[7])
   santas << Santa.new(genders[6], ethnicities[9])
   santas << Santa.new(genders[7], ethnicities[1])
-
 end
 
-puts santas[3].speak
+santas.each do |i|
+  puts "This santa is #{[i]}"
+end
+
+santas[1].gender = genders[7]
