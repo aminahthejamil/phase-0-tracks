@@ -1,4 +1,15 @@
 class Santa
+
+
+  def initialize(gender, ethnicity)
+    @gender = gender
+    @ethnicity = ethnicity
+    "Initializing Santa instance..."
+  end
+
+  @age = 0
+  @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+
   def speak
     puts "Ho, ho, ho! Haaaaaaaappy holidays!"
   end
@@ -7,12 +18,14 @@ class Santa
     puts "That was a good #{type_of} cookie!"
   end
 
-  def initialize
-    "Initializing Santa instance..."
-  end
 end
 
-bobby_santa = Santa.new
+santas = []
+genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
-bobby_santa.eat_milk_and_cookies("choco chip")
-bobby_santa.speak
+genders.length.times do |i|
+  santas << Santa.new(genders[2], ethnicities[3])
+end
+
+print santas
