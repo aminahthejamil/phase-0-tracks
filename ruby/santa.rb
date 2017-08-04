@@ -18,14 +18,40 @@ class Santa
     puts "That was a good #{type_of} cookie!"
   end
 
+  # Setter Methods
+  def celebrate_birthday=(year_up)
+    @celebrate_birthday = year_up
+  end
+
+  def get_mad_at=(name)
+      @get_mad_at = name
+  end
+
+  def gender=(new_gender)
+    @gender = new_gender
+  end
+
+  # Getter Methods
+  def age
+    @age
+  end
+
+  def ethnicity
+    @ethnicity
+  end
+
 end
 
 santas = []
-genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "two-spirit", "centaur", "hermaphrodyte", "N/A"]
+ethnicities = ["black", "Latino", "white", "Japanese-African", "Afro-Korean", "Jackalope", "Winter Bean", "Summer Bean", "Pleiadian", "Andromedan", "prefer not to say", "Unicorn", "N/A"]
 
 genders.length.times do |i|
   santas << Santa.new(genders[2], ethnicities[3])
+  santas << Santa.new(genders[1], ethnicities[7])
+  santas << Santa.new(genders[6], ethnicities[9])
+  santas << Santa.new(genders[7], ethnicities[1])
+
 end
 
-print santas
+puts santas[3].speak
