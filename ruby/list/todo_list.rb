@@ -1,11 +1,14 @@
 class TodoList
-
-	def initialize(get_items)
+  def initialize(get_items)
     @get_items = get_items
+    #get_items = ["do the dishes", "mow the lawn"]
 	end
 
-  def get_items(chore1, chore2)
-    todolist = chore1, chore2
+  def get_items
+    get_items = ["do the dishes", "mow the lawn"]
   end
 
+  def add_item(chore)
+    get_items[2] = "mop"
+  end
 end
