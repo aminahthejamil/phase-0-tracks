@@ -1,6 +1,6 @@
 class TodoList
-	def initialize(chore1, chore2)
-		@List = [chore1, chore2]
+	def initialize(chore1)
+		@List = chore1
 	end
 
   def get_items
