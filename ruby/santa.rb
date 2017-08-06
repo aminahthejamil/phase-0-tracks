@@ -1,5 +1,6 @@
 class Santa
-
+  attr_reader :age, :ethnicity
+  attr_accessor :
 
   def initialize(gender, ethnicity)
     @gender = gender
@@ -20,7 +21,8 @@ class Santa
 
   # Setter Methods
   def celebrate_birthday=(year_up)
-    @celebrate_birthday = year_up
+    @celebrate_birthday = @age(year_up)
+    year_up += 1
   end
 
   def get_mad_at=(name)
@@ -29,15 +31,6 @@ class Santa
 
   def gender=(new_gender)
     @gender = new_gender
-  end
-
-  # Getter Methods
-  def age
-    @age
-  end
-
-  def ethnicity
-    @ethnicity
   end
 
 end
