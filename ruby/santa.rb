@@ -1,6 +1,6 @@
 class Santa
   attr_reader :age, :ethnicity
-  attr_accessor :
+  attr_accessor :celebrate_birthday, :get_mad_at, :gender
 
   def initialize(gender, ethnicity)
     @gender = gender
@@ -18,7 +18,7 @@ class Santa
   def eat_milk_and_cookies(type_of)
     puts "That was a good #{type_of} cookie!"
   end
-
+=begin
   # Setter Methods
   def celebrate_birthday=(year_up)
     @celebrate_birthday = @age(year_up)
@@ -31,7 +31,7 @@ class Santa
 
   def gender=(new_gender)
     @gender = new_gender
-  end
+=end
 
 end
 
