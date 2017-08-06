@@ -26,16 +26,30 @@ module Shout
   end
 end
 
-class Angry_parrot
+class Mad_parrot
   include Shout
 end
 
-class Happy_clown
+class Glad_parrot
   include Shout
 end
 
-parrot = Angry_parrot.new
-p parrot.yell_angrily("Polly wants a frickin' cracker")
+class Sad_clown
+  include Shout
+end
 
-clownface = Happy_clown.new
-p clownface.yelling_happily("Doopity doo, how are you")
+class Glad_clown
+  include Shout
+end
+
+mad_parrot = Mad_parrot.new
+p mad_parrot.yell_angrily("Polly wants a frickin' cracker")
+
+glad_parrot = Glad_parrot.new
+p glad_parrot.yelling_happily("Polly finally got a cracker")
+
+sad_clown = Sad_clown.new
+p sad_clown.yell_angrily("Where in the world is my honk honk nose")
+
+glad_clown = Glad_clown.new
+p glad_clown.yelling_happily("Doopity doo, how are you")
