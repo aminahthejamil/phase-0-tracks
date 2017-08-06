@@ -1,8 +1,8 @@
 class Santa
   attr_reader :age, :ethnicity
-  attr_accessor :celebrate_birthday, :get_mad_at, :gender
+  attr_accessor :celebrate_birthday, :get_mad_at, :gender, :age
 
-  def initialize(gender, ethnicity)
+  def initialize(gender, ethnicity, age)
     @gender = gender
     @ethnicity = ethnicity
     "Initializing Santa instance..."
@@ -20,8 +20,8 @@ class Santa
   end
 
   def celebrate_birthday
-    @age = @age + 1
-    puts "Santa is now #{@age}"
+    @age += 1
+
   end
 
   def speak
@@ -59,14 +59,28 @@ p santas[0]
 =end
 # Release 4
 
-ctr = 0
+counter = 0
 inclusive_santas = []
-while ctr < 10
-  the_santas = Santa.new(genders.sample, ethnicities.sample)
-  inclusive_santas << the_santas
-  ctr += 1
+while counter < 10
+  rand_gender = genders.sample
+  rand_ethnic = ethnicities.sample
+  rand_age = rand(141)
+  inclusive_santas << Santa.new(rand_gender, rand_ethnic, rand_age)
+  inclusive_santas[counter].age = rand_age
+  counter += 1
 end
 
+counter = 1
+inclusive_santas.each do |cool_santas|
+  puts "Here's Santa ##{counter}!"
+  puts "This Santa is #{cool_santas.gender} and #{cool_santas.ethnicity}! How lovely!"
+  puts "This Santa is #{cool_santas.age} years old. Nice!"
+  puts "Santa says:"
+  puts "#{cool_santas.eat_milk_and_cookies("M&M")}"
+  counter += 1
+end
+
+=begin
 inclusive_santas[0].eat_milk_and_cookies("M&M")
 inclusive_santas[2].celebrate_birthday
 p inclusive_santas[0].ethnicity
@@ -75,3 +89,4 @@ p inclusive_santas[4].gender
 p inclusive_santas[6].get_mad_at("Dancer")
 p the_santas.get_mad_at("Donner")
 p the_santas.celebrate_birthday
+=end
