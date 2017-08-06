@@ -11,4 +11,10 @@ end
 class Plane
   include Flight
 end
-  
+
+
+birb = Birb.new
+birb.take_off(800)
+
+plane = Plane.new
+plane.take_off(30000)
