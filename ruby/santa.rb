@@ -1,5 +1,5 @@
 class Santa
-  attr_reader :age, :ethnicity
+  attr_reader :ethnicity
   attr_accessor :celebrate_birthday, :get_mad_at, :gender, :age
 
   def initialize(gender, ethnicity, age)
