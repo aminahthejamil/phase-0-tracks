@@ -6,10 +6,23 @@ class Santa
     @gender = gender
     @ethnicity = ethnicity
     "Initializing Santa instance..."
+    @age = 0
+    @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
   end
 
-  @age = 0
-  @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+
+  def get_mad_at(name)
+    og_reindeer_list = @reindeer_ranking
+    new_reinder_list = []
+    og_reindeer_list.delete(name)
+    og_reindeer_list.insert(-1, name)
+    new_reinder_list << og_reindeer_list
+  end
+
+  def celebrate_birthday
+    @age = @age + 1
+    puts "Santa is now #{@age}"
+  end
 
   def speak
     puts "Ho, ho, ho! Haaaaaaaappy holidays!"
@@ -18,36 +31,47 @@ class Santa
   def eat_milk_and_cookies(type_of)
     puts "That was a good #{type_of} cookie!"
   end
-=begin
-  # Setter Methods
-  def celebrate_birthday=(year_up)
-    @celebrate_birthday = @age(year_up)
-    year_up += 1
-  end
-
-  def get_mad_at=(name)
-      @get_mad_at = name
-  end
-
-  def gender=(new_gender)
-    @gender = new_gender
-=end
-
 end
 
 santas = []
 genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "two-spirit", "centaur", "hermaphrodyte", "N/A"]
 ethnicities = ["black", "Latino", "white", "Japanese-African", "Afro-Korean", "Jackalope", "Winter Bean", "Summer Bean", "Pleiadian", "Andromedan", "prefer not to say", "Unicorn", "N/A"]
 
+# Release 1
+=begin
 genders.length.times do |i|
   santas << Santa.new(genders[2], ethnicities[3])
-  santas << Santa.new(genders[1], ethnicities[7])
-  santas << Santa.new(genders[6], ethnicities[9])
-  santas << Santa.new(genders[7], ethnicities[1])
 end
+=end
 
+# Release 2
 santas.each do |i|
   puts "This santa is #{[i]}"
 end
+=begin
+p santas[0].celebrate_birthday
+p santas[0].get_mad_at("Comet")
+p santas[0].speak
+p santas[0].eat_milk_and_cookies("M&M")
+p santas[0].gender = "Non-binary"
 
-santas[1].gender = genders[7]
+p santas[0]
+=end
+# Release 4
+
+ctr = 0
+inclusive_santas = []
+while ctr < 10
+  the_santas = Santa.new(genders.sample, ethnicities.sample)
+  inclusive_santas << the_santas
+  ctr += 1
+end
+
+inclusive_santas[0].eat_milk_and_cookies("M&M")
+inclusive_santas[2].celebrate_birthday
+p inclusive_santas[0].ethnicity
+p inclusive_santas[4].ethnicity
+p inclusive_santas[4].gender
+p inclusive_santas[6].get_mad_at("Dancer")
+p the_santas.get_mad_at("Donner")
+p the_santas.celebrate_birthday
