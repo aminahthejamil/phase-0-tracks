@@ -4,21 +4,28 @@ class WordGuess
 
   def initialize(the_word)
     @is_over = false
-    @the_word = the_word.downcase
+    @the_word = the_word
     @placeholder = "_" * the_word.length
-    puts @placeholder
   end
 
   def get_letters(guessed_letter)
-    @the_word.split('').each_index do |good_letter, index|
+    @the_word.each_index do |good_letter, index|
       if guessed_letter == good_letter
-        @placeholder[index] = guessed_letter
-        puts "Yes! #{quessed_letter} is in the word!"
+        @placeholder[] = guessed_letter
+        puts "Yes! #{guessed_letter} is in the word!"
       end
-      p @placeholder
+      puts @placeholder
       if !@the_word.include?(guessed_letter)
         puts "#{guessed_letter} is not in this word, please try again"
       end
+    end
+  end
+
+  def game_over
+    if @the_word == @placeholder
+      puts "Congratulations Player 2, you have won the game!"
+    else
+      puts "Sorry, Player 2, you did not win this time around."
     end
   end
 end
@@ -29,7 +36,7 @@ puts "Welcome to the word guessing game, where one player enters a word and the 
 
 
 puts "Player 1, please enter a word:"
-p1_word = gets.chomp
+p1_word = gets.chomp.split('')
 
 game = WordGuess.new(p1_word)
 game.the_word = p1_word
@@ -37,15 +44,12 @@ game.the_word = p1_word
 letters_guessed = []
 guesses = 0
 
+puts "Player 2, go on and guess a letter!"
 until guesses == p1_word.length * 2
-
-  puts "Player 2, go on and guess a letter!"
-  p2_letter = gets.chomp
-  break if p2_letter == "quit"
-
+  p2_letter = gets.chomp.downcase
   if letters_guessed.include? p2_letter
-    puts "Sorry, you already guessed that letter. Guess again!"
-    p2_letter = gets.chomp
+    puts "You already guessed that letter. Guess again!"
+    p2_letter = gets.chomp.downcase
     break if p2_letter == "quit"
   end
 
@@ -55,36 +59,3 @@ until guesses == p1_word.length * 2
 
   guesses += 1
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=begin
-player_one_word.each do |letters|
-  letter.length
-  puts
-
-=end
-
-
-=begin
-while !game.is_over
-  puts "Enter a letter:"
-  guess = gets.chomp
-  if !game.get_letter(guess - 1)
-end
-=end
