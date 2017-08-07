@@ -1,12 +1,11 @@
 class WordGuess
   attr_reader :the_word
-  attr_accessor :the_word, :placeholder
+  attr_accessor :the_word, :dashes
 
   def initialize(the_word)
     @is_over = false
     @the_word = the_word.downcase
-    @placeholder = "_" * the_word.length
-    puts @placeholder
+    @dashes = []
   end
 
   def get_letters(guessed_letter)
@@ -34,6 +33,8 @@ p1_word = gets.chomp
 game = WordGuess.new(p1_word)
 game.the_word = p1_word
 
+game.dashes = "_" * game.p1_word.length
+
 letters_guessed = []
 guesses = 0
 
@@ -55,36 +56,3 @@ until guesses == p1_word.length * 2
 
   guesses += 1
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=begin
-player_one_word.each do |letters|
-  letter.length
-  puts
-
-=end
-
-
-=begin
-while !game.is_over
-  puts "Enter a letter:"
-  guess = gets.chomp
-  if !game.get_letter(guess - 1)
-end
-=end
