@@ -1,3 +1,4 @@
+
 class GuessingWords
   attr_reader :guesses
   attr_accessor :is_over, :placeholder, :the_word
@@ -9,6 +10,7 @@ class GuessingWords
     @the_word = the_word
     @placeholder = Array.new(the_word.length, "_")
     @ctr = 0
+
   end
 #Code to get the letters from Player 2 and check them against Player 1's word
   def get_letters(letter)
@@ -60,14 +62,14 @@ puts "Player 1, please enter a word:"
 the_word = gets.chomp
 
 game = GuessingWords.new(the_word)
-system "clear"
 
-#game.dashes = ("-" * game.p1_word.length).split('')
 
 while !game.is_over
   puts "Player 2, choose a letter (enter 'quit' if you'd like to end the game early):"
   p2_letter = gets.chomp
   break if p2_letter == 'quit'
   game.get_letters(p2_letter)
+
   game.progression
+
 end
