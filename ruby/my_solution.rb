@@ -29,18 +29,40 @@ class VirusPredictor
   # This method gives values on predicted deaths for each state based on pop density and total pop
   # using a multiplication formula, and prints results.
   def predicted_deaths
+
     # predicted deaths is solely based on population density
-    if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
-    else
-      number_of_deaths = (@population * 0.05).floor
-    end
+    # if @population_density >= 200
+    #   number_of_deaths = (@population * 0.4).floor
+    # elsif @population_density >= 150
+    #   number_of_deaths = (@population * 0.3).floor
+    # elsif @population_density >= 100
+    #   number_of_deaths = (@population * 0.2).floor
+    # elsif @population_density >= 50
+    #   number_of_deaths = (@population * 0.1).floor
+    # else
+    #   number_of_deaths = (@population * 0.05).floor
+    # end
+
+
+    # print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+
+
+    # This is the refactored version, using a case statement to create DRY code.
+    a = @population_density
+    b = @population
+
+      case a
+      when (200..11000)
+        number_of_deaths =(b * 0.4).floor
+      when (150..199)
+        number_of_deaths =(b * 0.3).floor
+      when (100..149)
+        number_of_deaths =(b * 0.2).floor
+      when (50..99)
+        number_of_deaths =(b * 0.1).floor
+      else
+        number_of_deaths =(b * 0.05).floor
+      end
 
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
@@ -51,19 +73,38 @@ class VirusPredictor
   def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
-    speed = 0.0
+    # speed = 0.0
 
-    if @population_density >= 200
-      speed += 0.5
-    elsif @population_density >= 150
-      speed += 1
-    elsif @population_density >= 100
-      speed += 1.5
-    elsif @population_density >= 50
-      speed += 2
-    else
-      speed += 2.5
-    end
+    # if @population_density >= 200
+    #   speed += 0.5
+    # elsif @population_density >= 150
+    #   speed += 1
+    # elsif @population_density >= 100
+    #   speed += 1.5
+    # elsif @population_density >= 50
+    #   speed += 2
+    # else
+    #   speed += 2.5
+    # end
+
+    # puts " and will spread across the state in #{speed} months.\n\n"
+
+     # This is the refactored version, using a case statement to create DRY code.
+    speed = 0.0
+    a = @population_density
+
+      case a
+      when (200..11000)
+        speed += 0.5
+      when (150..199)
+        speed += 1
+      when (100..149)
+        speed += 1.5
+      when (50..99)
+        speed += 2
+      else
+        speed += 2.5
+      end
 
     puts " and will spread across the state in #{speed} months.\n\n"
 
@@ -97,3 +138,5 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# 
