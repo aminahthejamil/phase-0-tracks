@@ -139,4 +139,8 @@ end
 #=======================================================================
 # Reflection Section
 
-# 
+# 1. The hash rocket allows the key to be more clear and called upon. The symbol is better for programmers to read and make changes upon.
+# 2. Require_relative allows other files to be accessed from within the ruby document without having to use the whole directory link.
+# 3. Use built-in methods, such as .each, to access the keys and values
+# 4. The variables were declared a lot when they didn't need to be, after they were declared in the initialize method
+# 5. Variables and not having to set them as parameters for each method they'd be used with.
