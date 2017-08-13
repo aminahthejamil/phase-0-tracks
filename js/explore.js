@@ -19,7 +19,9 @@ function reverse(str) {
   return newWord; //this returns the new word
 }
 
-reverse("bean");
-reverse("Hello World");
-reverse("Zigazig ah");
-reverse("Viva la Spice Girls");
+console.log(reverse("bean"));
+console.log(reverse("Hello World"));
+console.log(reverse("Zigazig ah"));
+console.log(reverse("Viva la Spice Girls"));
+
+//Driver Code
