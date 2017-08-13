@@ -19,9 +19,26 @@ function reverse(str) {
   return newWord; //this returns the new word
 }
 
+//Driver code testy test
 console.log(reverse("bean"));
 console.log(reverse("Hello World"));
 console.log(reverse("Zigazig ah"));
 console.log(reverse("Viva la Spice Girls"));
 
-//Driver Code
+//Driver code #1
+var spiceyGal = reverse("Viva la Spice Girls")
+
+console.log(spiceyGal)
+
+//Driver Code #2
+var theMike = "Michael Jackson"
+var theTruth = true
+
+if (theTruth && (theMike = "Michael Jackson")) {
+  console.log(spiceyGal);
+}
+else {
+  console.log("No reverse for you!");
+}
+
+//Add driver code that prints the variable if some condition is true. The condition can be a silly one, like 1 == 1.
