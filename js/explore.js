@@ -40,5 +40,3 @@ if (theTruth && (theMike = "Michael Jackson")) {
 else {
   console.log("No reverse for you!");
 }
-
-//Add driver code that prints the variable if some condition is true. The condition can be a silly one, like 1 == 1.
