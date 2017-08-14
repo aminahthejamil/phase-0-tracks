@@ -33,6 +33,45 @@ console.log(theLongestWord(arr));
    3. If there are matching key-value pairs, return true; if none, return false
 */
 
-function objectMatch(objectOne, objectTwo) {
-  
+arrayOne = [];
+arrayTwo = [];
+function toArrayOne(object) {
+  Object.keys(object).forEach(function(key) {
+      arrayOne.push(key);
+  });
+  Object.values(object).forEach(function(value) {
+      arrayOne.push(value);
+  });
+  return arrayOne;
 }
+
+function toArrayTwo(object) {
+  Object.keys(object).forEach(function(key) {
+      arrayTwo.push(key);
+  });
+  Object.values(object).forEach(function(value) {
+      arrayTwo.push(value);
+  });
+  return arrayTwo;
+}
+
+var obj1 = {name: "Space", age: 45};
+var obj2 = {name: "Goon", age: 45};
+
+var isMatch = false;
+function objectMatch() {
+  for (var i = 0, j = arrayOne.length; !isMatch && i < j; i++) {
+    for (var x = 0; x < arrayTwo.length; x++) {
+      if (toArrayOne(arrayOne).indexOf(toArrayTwo(arrayTwo[i])) > -1) {
+        isMatch = true;
+        break;
+      }
+      else {
+        isMatch = false;
+      }
+    }
+  }
+  return isMatch;
+}
+
+console.log(objectMatch);
