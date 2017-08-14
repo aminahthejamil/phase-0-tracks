@@ -25,3 +25,14 @@ function theLongestWord(array) {
 }
 
 console.log(theLongestWord(arr));
+
+
+// Release 1
+/* 1. Have two objects and compare them
+   2. Iterate through the objects
+   3. If there are matching key-value pairs, return true; if none, return false
+*/
+
+function objectMatch(objectOne, objectTwo) {
+  
+}
