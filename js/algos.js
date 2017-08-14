@@ -83,3 +83,22 @@ console.log(objectMatch);
    4. Generate a random number
    5. Create strings the length of the random number and push the 'n' amount of strings to the empty array
 */
+
+function randomTest(n) {
+  array = [];
+  array.length = n;
+
+  var text = "";
+  var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  var len = Math.floor(Math.random() * 10)
+    for(var i = 0; i < len; i++) {
+        text = chars.charAt(Math.floor(Math.random() * chars.length)); {
+          for (var j = 0; j < n; j++) {
+            array.push(text);
+          }
+        }
+    }
+    return array;
+}
+
+console.log(randomTest(7));
