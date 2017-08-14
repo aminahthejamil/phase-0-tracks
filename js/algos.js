@@ -75,3 +75,11 @@ function objectMatch() {
 }
 
 console.log(objectMatch);
+
+// Release 2
+/* 1. Create a function with a parameter 'n'
+   2. Create an empty array
+   3. Set the array length equal to 'n'
+   4. Generate a random number
+   5. Create strings the length of the random number and push the 'n' amount of strings to the empty array
+*/
