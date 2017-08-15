@@ -28,36 +28,35 @@ function theLongestWord(array) {
    3. If there are matching key-value pairs, return true; if none, return false
 */
 
-arrayOne = [];
-arrayTwo = [];
-function toArrayOne(object) {
-  Object.keys(object).forEach(function(key) {
-      arrayOne.push(key);
-  });
-  Object.values(object).forEach(function(value) {
-      arrayOne.push(value);
-  });
-  return arrayOne;
-}
-
-function toArrayTwo(object) {
-  Object.keys(object).forEach(function(key) {
-      arrayTwo.push(key);
-  });
-  Object.values(object).forEach(function(value) {
-      arrayTwo.push(value);
-  });
-  return arrayTwo;
-}
-
-var obj1 = {name: "Space", age: 45};
-var obj2 = {name: "Goon", age: 45};
-
+var arrayOne = [];
+var arrayTwo = [];
 var isMatch = false;
-function objectMatch() {
+
+function toArrayOne(object) {
+    Object.keys(object).forEach(function(key) {
+        arrayOne.push(key);
+    });
+    Object.values(object).forEach(function(value) {
+        arrayOne.push(value);
+    });
+    return arrayOne;
+  }
+
+  function toArrayTwo(object) {
+    Object.keys(object).forEach(function(key) {
+        arrayTwo.push(key);
+    });
+    Object.values(object).forEach(function(value) {
+        arrayTwo.push(value);
+    });
+    return arrayTwo;
+  }
+
+function objectMatch(array1, array2) {
+
   for (var i = 0, j = arrayOne.length; !isMatch && i < j; i++) {
-    for (var x = 0; x < arrayTwo.length; x++) {
-      if (toArrayOne(arrayOne).indexOf(toArrayTwo(arrayTwo[i])) > -1) {
+    //for (var x = 0; x < arrayTwo.length; x++) {
+      if ((array1.indexOf(array2[i])) > -1) {
         isMatch = true;
         break;
       }
@@ -65,12 +64,17 @@ function objectMatch() {
         isMatch = false;
       }
     }
-  }
+  //}
   return isMatch;
 }
 
-console.log(objectMatch);
+var obj1 = {name: "Space", age: 45};
+var obj2 = {name: "Goon", age: 45};
 
+array1 = toArrayOne(obj1);
+array2 = toArrayTwo(obj2);
+
+console.log(objectMatch(array1, array2));
 // Release 2
 /* 1. Create a function with a parameter 'n'
    2. Create an empty array
