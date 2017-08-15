@@ -7,25 +7,20 @@
    5. Need two loops
     - one to loop through the array
     - one to loop through the string characters
-
 */
 
-var arr = ["first item", "second item", "third item is long"];
-var strLength = 0;
-var longestWord;
 
 function theLongestWord(array) {
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i].length > strLength) {
-      var longestWord = arr.length;
-      longestWord = arr[i];
+  var strLength = 0;
+  //var longestWord;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].length > strLength) {
+      var longestWord = array.length;
+      longestWord = array[i];
     }
   }
    return longestWord;
 }
-
-console.log(theLongestWord(arr));
-
 
 // Release 1
 /* 1. Have two objects and compare them
@@ -86,19 +81,37 @@ console.log(objectMatch);
 
 function randomTest(n) {
   array = [];
-  array.length = n;
 
   var text = "";
-  var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  var len = Math.floor(Math.random() * 10)
+  var chars = "abcdefghijklmnopqrstuvwxyz";
+  var len = Math.floor(Math.random() * 10);
+
+  // outside for loop for the number of words we have to create
+  for (var x = 0; x < n; x++) {
+
+    // randomly generate the length of the word
+    len = 1 +  Math.round(Math.random() * 9);
+
+    //this for loop creates a random word
     for(var i = 0; i < len; i++) {
-        text = chars.charAt(Math.floor(Math.random() * chars.length)); {
-          for (var j = 0; j < n; j++) {
-            array.push(text);
-          }
-        }
+      text += chars.charAt(Math.floor(Math.random() * chars.length));
     }
-    return array;
+
+    // add the new word to our array of words
+    array.push(text);
+
+    // reset the text variable
+    text = "";
+  }
+return array;
 }
 
-console.log(randomTest(7));
+// Driver Code
+
+for (var i = 0; i < 10 ; i++) {
+
+    var longArray = randomTest(3);
+    console.log(longArray);
+    console.log("Here is the longest word:")
+    console.log(theLongestWord(longArray));
+}
