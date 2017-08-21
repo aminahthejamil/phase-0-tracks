@@ -21,7 +21,7 @@
 db = SQLite3::Database.new("basic_diary.db")
 db.results_as_hash = true
 
-# learn about fancy string delimiters
+# Fancy string delimiter
 create_table_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS diary(
     id INTEGER PRIMARY KEY,
@@ -29,6 +29,13 @@ create_table_cmd = <<-SQL
     entry_date INT,
     body VARCHAR(255),
     mood INT
+  )
+SQL
+
+create_table_cmd = <<-SQL
+  CREATE TABLE IF NOT EXISTS moods(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255)
   )
 SQL
 
