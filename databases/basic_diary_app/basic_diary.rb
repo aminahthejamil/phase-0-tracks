@@ -22,6 +22,7 @@ db = SQLite3::Database.new("basic_diary.db")
 db.results_as_hash = true
 
 # Fancy string delimiter
+=begin
 create_table_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS diary(
     id INTEGER PRIMARY KEY,
@@ -39,11 +40,7 @@ create_table_cmd = <<-SQL
     name VARCHAR(255)
   )
 SQL
-
+=end
 # create a diary table (if it's not there already)
 
-db.execute(create_table_cmd)
-
-# add a test entry
-
-db.execute("INSERT INTO diary (title, entry_date, body, mood) VALUES ('A New Day', 01012017,  'Dear Diary, today was an exquisite day. I hope to continue our relationship into the future.', 2)")
+# db.execute(create_table_cmd)
