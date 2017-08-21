@@ -45,6 +45,18 @@ SQL
 
 # db.execute(create_table_cmd)
 
+# Diary Code
+
+class Diary
+  def initialize
+
+  end
+
+  def add_entry
+  end
+
+  
+end
 
 # User Interface
 
