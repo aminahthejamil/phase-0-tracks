@@ -1,0 +1,51 @@
+1. SELECT * FROM campers;
+  - 1|Domino|Mariano|true|13|2
+    2|Parker|Daisy|false|12|1
+    3|Erica|Monsan|false|13|1
+    4|Mathias|Linguano|true|13|1
+    5|Foosilla|Linguano|true|13|1
+    6|Naila|Tooth|true|12|1
+    7|Corla|Doot|false|12|2
+    8|Tyan|McGrady|false|13|2
+    9|Emilia|Gunn|false|13|2
+    10|Byron|Finglehopper|true|13|2
+    11|Petuna|Oomie|true|12|2
+2.  UPDATE campers SET last_name="Hayes" WHERE id=5;
+  - 5|Foosilla|Hayes|true|13|1
+3. SELECT * FROM campers, summer_camps WHERE campers.camp_id = summer_camps.id;
+  - 1|Domino|Mariano|true|13|2|2|Camp Wabansia
+    2|Parker|Daisy|false|12|1|1|Camp Hard Rock
+    3|Erica|Monsan|false|13|1|1|Camp Hard Rock
+    4|Mathias|Linguano|true|13|1|1|Camp Hard Rock
+    5|Foosilla|Hayes|true|13|1|1|Camp Hard Rock
+    6|Naila|Tooth|true|12|1|1|Camp Hard Rock
+    7|Corla|Doot|false|12|2|2|Camp Wabansia
+    8|Tyan|McGrady|false|13|2|2|Camp Wabansia
+    9|Emilia|Gunn|false|13|2|2|Camp Wabansia
+    10|Byron|Finglehopper|true|13|2|2|Camp Wabansia
+    11|Petuna|Oomie|true|12|2|2|Camp Wabansia
+4. SELECT campers.first_name, summer_camps.name FROM campers JOIN summer_camps ON campers.camp_id = summer_camps.id;
+    - Domino|Camp Wabansia
+      Parker|Camp Hard Rock
+      Erica|Camp Hard Rock
+      Mathias|Camp Hard Rock
+      Foosilla|Camp Hard Rock
+      Naila|Camp Hard Rock
+      Corla|Camp Wabansia
+      Tyan|Camp Wabansia
+      Emilia|Camp Wabansia
+      Byron|Camp Wabansia
+      Petuna|Camp Wabansia
+5. DELETE FROM campers WHERE age;
+  - 1|Naila|Tooth|true|1
+    2|Connie|Vroom|true|1
+    3|Debbie|Little|false|1
+    4|Bobby|Brown|true|1
+    5|Derek|Zambo|false|1
+    6|Cassian|Zamark|false|2
+    7|Whoar|Dandy|false|2
+    8|Hal|Ponder|true|2
+    9|Casey|Metz|true|2
+    10|Lois|Campbell|false|2
+
+Release 3 Research
