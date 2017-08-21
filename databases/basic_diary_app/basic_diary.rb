@@ -18,8 +18,8 @@
   require 'faker'
 
 # create SQLite3 database
-db = SQLite3::Database.new("basic_diary.db")
-db.results_as_hash = true
+#db = SQLite3::Database.new("basic_diary.db")
+#db.results_as_hash = true
 
 # Fancy string delimiter
 =begin
@@ -48,14 +48,47 @@ SQL
 # Diary Code
 
 class Diary
+  @db = SQLite3::Database.new("basic_diary.db")
+  attr_accessor :title, :entry_date, :body, :mood
   def initialize
-
+    @title
+    @entry_date
+    @body
+    @mood
   end
 
-  def add_entry
+  def add_title(title_entry)
+    db.execute("INSERT INTO diary (title) VALUES (?)", [title])
   end
 
-  
+  def add_date(date_entry)
+    db.execute("INSERT INTO diary (entry_date) VALUES (?)", [entry_date])
+  end
+
+  def add_body(body_entry)
+    db.execute("INSERT INTO diary (body) VALUES (?)", [body])
+  end
+
+  def add_mood(num)
+    db.execute("INSERT INTO diary (mood) VALUES (?)", [mood])
+  end
+
+  def edit_title(title_edit)
+    db.execute("UPDATE diary SET title=(?) WHERE title=(?)", [title])
+  end
+
+  def edit_date(date_edit)
+    db.execute("UPDATE diary SET entry_date=(?) WHERE entry_date=(?)", [entry_date])
+  end
+
+  def edit_body(body_edit)
+    db.execute("UPDATE diary SET body=(?) WHERE body=(?)", [body])
+  end
+
+  def edit_mood(mood_edit)
+    db.execute("UPDATE diary SET mood=(?) WHERE mood=(?)", [mood])
+  end
+
 end
 
 # User Interface
@@ -65,3 +98,9 @@ puts "Thank you for choosing El Ruby de la Paz for your diary needs."
 puts "First, lets get acquainted. What's your first name?"
   user_input = gets.chomp
 puts "Thanks! #{user_input}, let's get started on creating your diary entries!"
+puts "-----------------------------------------------------"
+
+entry = Diary.new
+puts "Please enter a Title:"
+title_input = gets.chomp
+entry.add_title(title_input)
