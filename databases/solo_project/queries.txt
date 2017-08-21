@@ -49,3 +49,25 @@
     10|Lois|Campbell|false|2
 
 Release 3 Research
+
+1. SELECT last_name, allergies
+   FROM campers
+   left join summer_camps ON camp_id = summer_camps.id;
+
+   Tooth|true
+   Vroom|true
+   Little|false
+   Brown|true
+   Zambo|false
+   Zamark|false
+   Dandy|false
+   Ponder|true
+   Metz|true
+   Campbell|false
+
+2. SELECT name
+   FROM summer_camps
+   left join campers ON campers.last_name = campers.id;
+
+   Camp Hard Rock
+   Camp Wabansia
