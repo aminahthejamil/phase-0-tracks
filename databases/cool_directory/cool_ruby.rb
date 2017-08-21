@@ -27,7 +27,11 @@ db.execute(create_table_cmd)
 # explore ORM by retrieving data
 kittens = db.execute("SELECT * FROM kittens")
 kittens.each do |kitten|
-  puts “#{kitten[’name’]} is #{kitten[‘age']}”
+  puts "#{kitten[1]} is #{kitten[2]}"
+end
+
+10.times do
+  create_kitten(db, Faker::Name.name, 0)
 end
 
 #class Something_Cool
