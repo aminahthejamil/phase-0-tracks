@@ -44,3 +44,12 @@ SQL
 # create a diary table (if it's not there already)
 
 # db.execute(create_table_cmd)
+
+
+# User Interface
+
+puts "Welcome the Basic Diary for Extraordinary People"
+puts "Thank you for choosing El Ruby de la Paz for your diary needs."
+puts "First, lets get acquainted. What's your first name?"
+  user_input = gets.chomp
+puts "Thanks! #{user_input}, let's get started on creating your diary entries!"
