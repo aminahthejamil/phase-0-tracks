@@ -28,7 +28,8 @@ create_table_cmd = <<-SQL
     title VARCHAR(255),
     entry_date INT,
     body VARCHAR(255),
-    mood INT
+    mood_id INT,
+    FOREIGN KEY (mood_id) REFERENCES moods(id)
   )
 SQL
 
