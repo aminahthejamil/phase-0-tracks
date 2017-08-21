@@ -21,7 +21,7 @@ SQL
 db.execute(create_table_cmd)
 
 # add a test kittens
-db.execute("INSERT INTO kittens (name, age) VALUES ("Bomas", 5)")
+db.execute("INSERT INTO kittens (name, age) VALUES ('Bomas', 5)")
 
 #class Something_Cool
 #end
