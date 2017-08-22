@@ -18,8 +18,8 @@
   require 'faker'
 
 # create SQLite3 database
-#db = SQLite3::Database.new("basic_diary.db")
-#db.results_as_hash = true
+db = SQLite3::Database.new("basic_diary.db")
+db.results_as_hash = true
 
 # Fancy string delimiter
 =begin
@@ -47,18 +47,8 @@ SQL
 
 # Diary Code
 
-class Diary
-  @db = SQLite3::Database.new("basic_diary.db")
-  attr_accessor :title, :entry_date, :body, :mood
-  def initialize
-    @title
-    @entry_date
-    @body
-    @mood
-  end
-
   def add_title(title_entry)
-    db.execute("INSERT INTO diary (title) VALUES (?)", [title])
+    return db.execute("INSERT INTO diary (title) VALUES (?)", [title])
   end
 
   def add_date(date_entry)
@@ -89,7 +79,6 @@ class Diary
     db.execute("UPDATE diary SET mood=(?) WHERE mood=(?)", [mood])
   end
 
-end
 
 # User Interface
 
@@ -100,7 +89,6 @@ puts "First, lets get acquainted. What's your first name?"
 puts "Thanks! #{user_input}, let's get started on creating your diary entries!"
 puts "-----------------------------------------------------"
 
-entry = Diary.new
 puts "Please enter a Title:"
 title_input = gets.chomp
-entry.add_title(title_input)
+add_title(title_input)
