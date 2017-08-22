@@ -1,5 +1,4 @@
 # Basic Diary for Extraordinary People Pseudocode
-
 # - Will create a database in SQLite to house diary entries
 # - Possibly have the users input their name as the name of the diary (table) or whatever name they want
 # - Have the users add the date of the entry
@@ -47,19 +46,19 @@ SQL
 
 # Diary Code
 
-  def add_title(title_entry)
-    return db.execute("INSERT INTO diary (title) VALUES (?)", [title])
+  def add_title(db, title)
+    db.execute("INSERT INTO diary (title) VALUES (?)", [title])
   end
 
-  def add_date(date_entry)
+  def add_date(db, entry_date)
     db.execute("INSERT INTO diary (entry_date) VALUES (?)", [entry_date])
   end
 
-  def add_body(body_entry)
+  def add_body(db, body)
     db.execute("INSERT INTO diary (body) VALUES (?)", [body])
   end
 
-  def add_mood(num)
+  def add_mood(db, mood)
     db.execute("INSERT INTO diary (mood) VALUES (?)", [mood])
   end
 
@@ -86,9 +85,27 @@ puts "Welcome the Basic Diary for Extraordinary People"
 puts "Thank you for choosing El Ruby de la Paz for your diary needs."
 puts "First, lets get acquainted. What's your first name?"
   user_input = gets.chomp
-puts "Thanks! #{user_input}, let's get started on creating your diary entries!"
+puts "Thanks! #{user_input}, let's get started!"
 puts "-----------------------------------------------------"
 
-puts "Please enter a Title:"
-title_input = gets.chomp
-add_title(title_input)
+puts "What would you like to do?"
+puts "-- Type 'add' to add a new entry."
+puts "-- Type 'update' to update a previous entry."
+puts "-- Type 'display' to display all entries."
+puts "-- Type 'delete' to delete an entry."
+
+choice = gets.chomp.downcase
+
+case choice
+when 'add'
+  puts "Please enter a Title:"
+  title_input = gets.chomp
+  add_title(db, title_input)
+
+  puts "Please enter a Title:"
+  title_input = gets.chomp
+  add_title(db, title_input)
+
+  puts "Please enter a Title:"
+  title_input = gets.chomp
+  add_title(db, title_input)
