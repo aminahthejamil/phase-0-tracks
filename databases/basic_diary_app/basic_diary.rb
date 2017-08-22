@@ -60,20 +60,51 @@ db.execute(create_table_cmd)
     db.execute("INSERT INTO diary (mood) VALUES (?)", [mood])
   end
 
-  def edit_title(title_edit)
-    db.execute("UPDATE diary SET title=(?) WHERE title=(?)", [title])
+  def edit_title(db, title, id)
+    db.execute("UPDATE diary SET title=(?) WHERE id=(?)", [title, id])
   end
 
-  def edit_body(body_edit)
-    db.execute("UPDATE diary SET body=(?) WHERE body=(?)", [body])
+  def edit_body(db, body, id)
+    db.execute("UPDATE diary SET body=(?) WHERE id=(?)", [body, id])
   end
 
-  def edit_mood(mood_edit)
-    db.execute("UPDATE diary SET mood=(?) WHERE mood=(?)", [mood])
+  def edit_mood(db, mood, id)
+    db.execute("UPDATE diary SET mood=(?) WHERE id=(?)", [mood, id])
   end
 
+  def title_edit_title(db, title, prev_title)
+    db.execute("UPDATE diary SET title=(?) WHERE title=(?)", [title, title])
+  end
+
+  def title_edit_body(db, body, prev_title)
+    db.execute("UPDATE diary SET body=(?) WHERE title=(?)", [body, title])
+  end
+
+  def title_edit_mood(db, mood, prev_title)
+    db.execute("UPDATE diary SET mood=(?) WHERE title=(?)", [mood, title])
+  end
+
+  def delete_entry(db, id)
+    db.execute("DELETE FROM diary WHERE id=(?)", [id])
+  end
 
 # User Interface
+mood_hash = {
+  "Excited" => 1,
+  "Happy" => 2,
+  "Content" => 3,
+  "Satisfied" => 4,
+  "Tired" => 5,
+  "Sleepy" => 6,
+  "Nonchalant" => 7,
+  "Disappointed" => 8,
+  "Angry" => 9,
+  "Dismall" => 10,
+  "Enraged" => 11,
+  "Apathetic" => 12,
+  "Nervous" => 13
+}
+
 
 puts "Welcome the Basic Diary for Extraordinary People"
 puts "Thank you for choosing El Ruby de la Paz for your diary needs."
@@ -82,47 +113,126 @@ puts "First, lets get acquainted. What's your first name?"
 puts "Thanks! #{user_input}, let's get started!"
 puts "-----------------------------------------------------"
 
-puts "What would you like to do?"
-puts "-- Type 'add' to add a new entry."
-puts "-- Type 'edit' to edit a previous entry."
-puts "-- Type 'display' to display all entries."
-puts "-- Type 'delete' to delete an entry."
-puts "Please press 'enter' after your selection."
+loop do
 
-choice = gets.chomp.downcase
+  puts "What would you like to do?"
+  puts "-- Type 'add' to add a new entry."
+  puts "-- Type 'edit' to edit a previous entry."
+  puts "-- Type 'display' to display all entries."
+  puts "-- Type 'delete' to delete an entry."
+  puts "-- Type 'quit' to exit the diary."
+  puts "Please press 'enter' after you type your selection."
 
-case choice
-when 'add'
-  puts "Please enter a Title:"
-  title_input = gets.chomp
-  add_title(db, title_input)
+  choice = gets.chomp.downcase
+  break if choice == 'quit'
 
-  puts "Please type your diary entry: (press 'enter' when you are finished.)"
-  body_input = gets.chomp
-  add_body(db, body_input)
-  puts body_input
+  case choice
+  when 'add'
+    puts "Please enter a Title:"
+    title_input = gets.chomp
+    add_title(db, title_input)
 
-  puts "Please enter the corresponding number for your current mood:"
-  puts "1|Excited 2|Happy 3|Content 4|Satisfied 5|Tired 6|Sleepy 7|Nonchalant 8|Disappointed 9|Angry 10|Dismall 11|Enraged 12|Apathetic 13|Nervous"
-  mood_input = gets.chomp.to_i
-  add_mood(db, title_input)
-when 'edit'
-  puts "-- Type 'list' to view a list of previous entries."
-  puts "Otherwise, please type the title of the entry you wish to edit:"
-  edit_choice = gets.chomp.downcase
-  case edit_choice
-  when 'list'
-    db.execute("SELECT * FROM diary")
-    puts "Please enter the title you wish to edit:"
+    puts "Please type your diary entry: (press 'enter' when you are finished.)"
+    body_input = gets.chomp
+    add_body(db, body_input)
+    puts body_input
 
-    title_for_the_edit = gets.chomp.downcase
-    
-    puts "What do you wish to edit?"
-    puts "-- Type 'title' to edit the title."
-    puts "-- Type 'body' to edit your entry."
-    puts "-- Type 'mood' to edit your mood."
+    puts "Please enter the corresponding number for your current mood:"
+    mood_hash.each do |mood, id|
+      puts "#{mood}: #{id}"
+    end
+    mood_input = gets.chomp.to_i
+    add_mood(db, title_input)
+  when 'edit'
+    puts "(Please note that if you decide to edit any part of your entries, your new entry will override the previous, so if you only want to edit a few words or lines, please copy and paste the original in from the query.)"
+    puts "-- Type 'list' to view a list of previous entries."
+    puts "Otherwise, please type the title of the entry you wish to edit (titles are case sensitive):"
+    edit_choice = gets.chomp.downcase
+    case edit_choice
+    when 'list'
+      diary_entries = db.execute("SELECT * FROM diary")
+      diary_entries.each do |id, title, body, mood|
+        puts "ID: #{id}"
+        puts "Title: #{title}"
+        puts "Entry: #{body}"
+        puts "Mood: #{mood}"
+      end
+      puts "Please enter the entry id you wish to edit:"
 
-  else
+      entry_id = gets.chomp.to_i
 
+      puts "What do you wish to edit?"
+      puts "-- Type 'title' to edit the title."
+      puts "-- Type 'body' to edit your entry."
+      puts "-- Type 'mood' to edit your mood."
+
+      edit_input = gets.chomp.downcase
+
+      case edit_input
+      when 'title'
+        puts "Please type the new title:"
+        new_title = gets.chomp
+        edit_title(db, new_title, entry_id)
+        puts "Your updated title is: #{new_title}"
+      when 'body'
+        puts "Please copy and paste original entry and edit, OR type in new entry."
+        new_body = gets.chomp
+        edit_body(db, new_body, entry_id)
+      when 'mood'
+        puts "Please type the number that corresponds to the new mood:"
+        mood_hash.each do |mood, id|
+          puts "#{mood}: #{id}"
+        end
+        new_mood = gets.chomp.to_i
+        edit_mood(db, new_mood, entry_id)
+        #puts "Your updated mood is: #{mood_hash[new_mood]}"
+    else
+      title_entry = gets.chomp
+
+      puts "What do you wish to edit?"
+      puts "-- Type 'title' to edit the title."
+      puts "-- Type 'body' to edit your entry."
+      puts "-- Type 'mood' to edit your mood."
+
+      edit_input = gets.chomp.downcase
+
+      case edit_input
+      when 'title'
+        puts "Please type the new title:"
+        new_title = gets.chomp
+        title_edit_title(db, new_title, title_entry)
+        puts "Your updated title is: #{new_title}"
+      when 'body'
+        puts "Please copy and paste original entry and edit, OR type in new entry."
+        new_body = gets.chomp
+        title_edit_body(db, new_body, title_entry)
+      when 'mood'
+        puts "Please type the number that corresponds to the new mood:"
+        mood_hash.each do |mood, id|
+          puts "#{mood}: #{id}"
+        end
+        new_mood = gets.chomp.to_i
+        title_edit_mood(db, new_mood, title_entry)
+      end
+
+  when 'display'
+    diary_entries = db.execute("SELECT * FROM diary")
+    diary_entries.each do |id, title, body, mood|
+      puts "ID: #{id}"
+      puts "Title: #{title}"
+      puts "Entry: #{body}"
+      puts "Mood: #{mood}"
+    end
+  when 'delete'
+    diary_entries = db.execute("SELECT * FROM diary")
+    diary_entries.each do |id, title, body, mood|
+      puts "ID: #{id}"
+      puts "Title: #{title}"
+      puts "Entry: #{body}"
+      puts "Mood: #{mood}"
+    end
+    puts "Please enter the ID of the entry you wish to delete:"
+    delete_id = gets.chomp.to_i
+    delete_entry(db, delete_id)
   end
 end
