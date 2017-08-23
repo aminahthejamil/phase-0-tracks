@@ -48,18 +48,18 @@ SQL
 
 # Diary Code
 
-  def add_title(db, title)
-    db.execute("INSERT INTO diary (title) VALUES (?)", [title])
+  def add_entry(db, title, body, mood_id)
+    db.execute("INSERT INTO diary (title, body, mood_id) VALUES (?, ?, ?)", [title, body, mood_id])
   end
-
+=begin
   def add_body(db, body)
     db.execute("INSERT INTO diary (body) VALUES (?)", [body])
   end
 
-  def add_mood(db, mood)
+  def add_mood(db, mood_id)
     db.execute("INSERT INTO diary (mood_id) VALUES (?)", [mood_id])
   end
-
+=end
   def edit_title(db, title, id)
     db.execute("UPDATE diary SET title=(?) WHERE id=(?)", [title, id])
   end
@@ -68,7 +68,7 @@ SQL
     db.execute("UPDATE diary SET body=(?) WHERE id=(?)", [body, id])
   end
 
-  def edit_mood(db, mood, id)
+  def edit_mood(db, mood_id, id)
     db.execute("UPDATE diary SET mood_id=(?) WHERE id=(?)", [mood_id, id])
   end
 
@@ -80,12 +80,20 @@ SQL
     db.execute("UPDATE diary SET body=(?) WHERE title=(?)", [body, title])
   end
 
-  def title_edit_mood(db, mood, prev_title)
+  def title_edit_mood(db, mood_id, prev_title)
     db.execute("UPDATE diary SET mood_id=(?) WHERE title=(?)", [mood_id, title])
   end
 
   def delete_entry(db, id)
     db.execute("DELETE FROM diary WHERE id=(?)", [id])
+  end
+
+  def display_entries(db)
+    diary_entries = db.execute("SELECT * FROM diary")
+    diary_entries.each do |entry|
+      puts "ID: #{entry['id']} | Title: #{entry['title']} | Mood: #{entry['mood_id']}"
+      puts "Entry: #{entry['body']}"
+    end
   end
 
 # User Interface
@@ -131,19 +139,16 @@ loop do
   when 'add'
     puts "Please enter a Title:"
     title_input = gets.chomp
-    add_title(db, title_input)
 
     puts "Please type your diary entry: (press 'enter' when you are finished.)"
     body_input = gets.chomp
-    add_body(db, body_input)
-    puts body_input
 
     puts "Please enter the corresponding number for your current mood:"
     mood_hash.each do |mood, id|
       puts "#{mood}: #{id}"
     end
     mood_input = gets.chomp.to_i
-    add_mood(db, title_input)
+    add_entry(db, title_input, body_input, mood_input)
 #Edit a entry
   when 'edit'
     puts "(Please note that if you decide to edit any part of your entries, your new entry will override the previous, so if you only want to edit a few words or lines, please copy and paste the original in from the query.)"
@@ -154,13 +159,7 @@ loop do
     case edit_choice
   #List entries to edit
     when 'list'
-      diary_entries = db.execute("SELECT * FROM diary")
-      diary_entries.each do |id, title, body, mood|
-        puts "ID: #{id}"
-        puts "Title: #{title}"
-        puts "Entry: #{body}"
-        puts "Mood: #{mood}"
-      end
+      display_entries(db)
       puts "Please enter the entry id you wish to edit:"
 
       entry_id = gets.chomp.to_i
@@ -220,27 +219,15 @@ loop do
           title_edit_mood(db, new_mood, title_entry)
         end
       end
+    end
 #Display all entries
   when 'display'
-    diary_entries = db.execute("SELECT * FROM diary")
-    diary_entries.each do |id, title, body, mood|
-      puts "ID: #{id}"
-      puts "Title: #{title}"
-      puts "Entry: #{body}"
-      puts "Mood: #{mood}"
-    end
+    display_entries(db)
 #Delete an entry
   when 'delete'
-    diary_entries = db.execute("SELECT * FROM diary")
-    diary_entries.each do |id, title, body, mood|
-      puts "ID: #{id}"
-      puts "Title: #{title}"
-      puts "Entry: #{body}"
-      puts "Mood: #{mood}"
-    end
+    display_entries(db)
     puts "Please enter the ID of the entry you wish to delete:"
     delete_id = gets.chomp.to_i
     delete_entry(db, delete_id)
   end
-end
 end
