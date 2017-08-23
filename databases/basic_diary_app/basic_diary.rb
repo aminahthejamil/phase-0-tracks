@@ -23,7 +23,7 @@ db = SQLite3::Database.new("basic_diary.db")
 db.results_as_hash = true
 
 # Fancy string delimiter
-=begin
+
 create_table_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS diary(
     id INTEGER PRIMARY KEY,
@@ -41,25 +41,17 @@ create_table_cmd = <<-SQL
     name VARCHAR(255)
   )
 SQL
-=end
+
 # create a diary table (if it's not there already)
 
-#db.execute(create_table_cmd)
+db.execute(create_table_cmd)
 
 # Diary Code
 
   def add_entry(db, title, body, mood_id)
     db.execute("INSERT INTO diary (title, body, mood_id) VALUES (?, ?, ?)", [title, body, mood_id])
   end
-=begin
-  def add_body(db, body)
-    db.execute("INSERT INTO diary (body) VALUES (?)", [body])
-  end
 
-  def add_mood(db, mood_id)
-    db.execute("INSERT INTO diary (mood_id) VALUES (?)", [mood_id])
-  end
-=end
   def edit_title(db, title, id)
     db.execute("UPDATE diary SET title=(?) WHERE id=(?)", [title, id])
   end
