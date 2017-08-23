@@ -223,6 +223,7 @@ loop do
 #Display all entries
   when 'display'
     display_entries(db)
+
 #Delete an entry
   when 'delete'
     display_entries(db)
