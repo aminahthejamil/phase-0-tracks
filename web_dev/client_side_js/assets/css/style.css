@@ -1,0 +1,34 @@
+body {
+  font-family: 'Fjalla One', sans-serif;
+}
+#title {
+  text-align: center;
+}
+#redfox {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#blackfox {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+#whitefox {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+#black-fox-btn {
+  text-align: center;
+}
+
+#white-fox-btn {
+  text-align: center;
+}
