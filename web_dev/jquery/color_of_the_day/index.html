@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color of the Day</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="assets/style.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+</head>
+<body>
+  <header>
+  </header>
+  <main>
+    <h1 class="cotd">Color of the Day:</h1>
+    <img src="assets/arrow.svg"  />
+    <p id="click">Click Here!</p>
+    <div id="color_block">
+      <h2 id="color_text">Picton Blue</h2>
+      <h3 id="color_hex">#4BAAF1</h3>
+    </div>
+  </main>
+  <footer>
+    <p>Made with Weirdness &copy; 2017 Aminah Jamil xoxo &hearts;</p>
+  </footer>
+  <script
+			  src="https://code.jquery.com/jquery-3.2.1.js"
+			  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+			  crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
+      $('#color_block').hide();
+        $('#click').on('click', function(){
+          $('#color_block').fadeIn(200);
+        })
+    });
+  </script>
+
+</body>
+</html>
