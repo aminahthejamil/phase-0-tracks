@@ -22,7 +22,7 @@ get '/campuses' do
   erb :campuses
 end
 
-get '/campus/new' do
+get '/campuses/new' do
   erb :new_campus
 end
 
