@@ -59,8 +59,11 @@ get '/great_job/:person' do
   end
 end
 
-get '/:num _1/plus/:num_2' do
-  num_1 = params[:num_1].to_i
-  num_2 = params[:num_2].to_i
-  num_1 + num_2
+get '/:num_1/plus/:num_2' do
+  num_1 = params[:num_1]
+  num_2 = params[:num_2]
+  num_1 = num_1.to_i
+  num_2 = num_2.to_i
+  x = num_1 + num_2
+  x.to_s
 end
