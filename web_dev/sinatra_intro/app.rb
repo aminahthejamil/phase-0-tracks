@@ -50,7 +50,8 @@ get '/contact' do
   "Omsburg, North Dakota 65431"
 end
 
-get '/great_job' do
+get '/great_job/:person' do
+  person = params[:person]
   if person
     "Good job, #{params[:person]}!"
   else
