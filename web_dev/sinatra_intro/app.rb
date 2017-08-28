@@ -49,3 +49,11 @@ get '/contact' do
   "555 Cherrytree Ln"
   "Omsburg, North Dakota 65431"
 end
+
+get '/great_job' do
+  if person
+    "Good job, #{params[:person]}!"
+  else
+    "Good job!"
+  end
+end
